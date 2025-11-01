@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спикерские фестивали — Нежный онлайн</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="Логотип">
+        <span>Нежный онлайн</span>
+      </a>
+      <nav id="nav" class="nav">
+        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="festivals.html" class="active">Фестивали</a></li>
+          <li><a href="categories.html">Рубрики</a></li>
+          <li><a href="become-speaker.html" class="cta">Стать спикером</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Спикерские фестивали</h1>
+
+      <div class="banner-grid">
+        <a class="banner card" href="https://www.youtube.com/" target="_blank" rel="noopener">
+          <img src="images/festivals/banners/banner1.jpg" alt="Фестиваль — баннер 1">
+          <span>Смотреть на YouTube</span>
+        </a>
+        <a class="banner card" href="https://vk.com/" target="_blank" rel="noopener">
+          <img src="images/festivals/banners/banner2.jpg" alt="Фестиваль — баннер 2">
+          <span>Смотреть во ВКонтакте</span>
+        </a>
+        <a class="banner card" href="https://dzen.ru/" target="_blank" rel="noopener">
+          <img src="images/festivals/banners/banner3.jpg" alt="Фестиваль — баннер 3">
+          <span>Смотреть на Дзене</span>
+        </a>
+      </div>
+
+      <div class="center mt-24">
+        <a class="btn primary" href="become-speaker.html">Хочешь стать спикером? →</a>
+      </div>
+
+      <h2 class="section-title mt-40">Галерея прошедших фестивалей</h2>
+      <div class="gallery grid-3" id="past-festivals">
+        <figure class="card"><img src="images/festivals/banners/banner4.jpg" alt="Фестиваль 4"><figcaption>«Женский день практик»</figcaption></figure>
+        <figure class="card"><img src="images/festivals/banners/banner5.jpg" alt="Фестиваль 5"><figcaption>«Сила мягкости»</figcaption></figure>
+        <figure class="card"><img src="images/festivals/banners/banner6.jpg" alt="Фестиваль 6"><figcaption>«Голос эксперток»</figcaption></figure>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> «Нежный онлайн».</p>
+      <nav class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+        <a href="categories.html">Рубрики</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

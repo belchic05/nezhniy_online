@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интернет Радио «Нежный онлайн»</title>
+  <meta name="description" content="Интернет Радио «Нежный онлайн» — площадка вашего развития. Интервью, вдохновляющие истории, рубрики, фестивали и участие для спикеров.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="Нежный онлайн логотип">
+        <span>Нежный онлайн</span>
+      </a>
+      <nav id="nav" class="nav">
+        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="festivals.html">Фестивали</a></li>
+          <li><a href="categories.html">Рубрики</a></li>
+          <li><a href="become-speaker.html" class="cta">Стать спикером</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-inner">
+        <h1>Интернет Радио «Нежный онлайн»</h1>
+        <p class="subtitle">Площадка вашего развития</p>
+        <p class="desc">
+          Мы создаём пространство мягкой силы: вдохновляющие беседы, полезные инсайты, истории успеха и поддержка
+          женщин в их личном, деловом, творческом и финансовом пути.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="become-speaker.html">Хочу стать спикером</a>
+          <a class="btn ghost" href="categories.html">Смотреть рубрики</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Что у нас есть для вас</h2>
+        <div class="grid-3 features">
+          <article class="card feature">
+            <div class="icon">🎙️</div>
+            <h3>Увлекательный контент</h3>
+            <p>Эфиры и подкасты от признанных мастеров и экспертов.</p>
+          </article>
+          <article class="card feature">
+            <div class="icon">🧩</div>
+            <h3>Тематические рубрики</h3>
+            <p>Подборки выпусков по вашим интересам и запросам.</p>
+          </article>
+          <article class="card feature">
+            <div class="icon">🤝</div>
+            <h3>Интервью</h3>
+            <p>Глубокие разговоры с интересными людьми.</p>
+          </article>
+          <article class="card feature">
+            <div class="icon">🌟</div>
+            <h3>Истории успеха</h3>
+            <p>Вдохновение через реальные кейсы и достижения.</p>
+          </article>
+          <article class="card feature">
+            <div class="icon">🧠</div>
+            <h3>Тайны и лайфхаки</h3>
+            <p>Практичные советы и инсайты в понятной форме.</p>
+          </article>
+          <article class="card feature">
+            <div class="icon">🎉</div>
+            <h3>События со звёздами</h3>
+            <p>Масштабные фестивали и тусовки единомышленников.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section soft-accent">
+      <div class="container">
+        <h2 class="section-title">Наша миссия</h2>
+        <p class="mission">
+          <strong>Поддержка женщин</strong> в их личном, деловом, творческом и финансовом развитии.
+        </p>
+      </div>
+    </section>
+
+    <!-- Speakers with Search -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Наши спикеры</h2>
+
+        <div class="speakers-toolbar">
+          <input type="search" id="speaker-search" placeholder="Поиск по имени спикера…" aria-label="Поиск спикеров">
+        </div>
+
+        <div id="speakers-grid" class="grid-3 speakers-grid"></div>
+
+        <div class="center">
+          <a class="btn link" href="become-speaker.html">Хотите к нам? Станьте спикером →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> «Нежный онлайн». Все права защищены.</p>
+      <nav class="footer-nav">
+        <a href="news.html">Новости</a>
+        <a href="festivals.html">Фестивали</a>
+        <a href="categories.html">Рубрики</a>
+        <a href="become-speaker.html">Стать спикером</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/search-speakers.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рубрики — Нежный онлайн</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="Логотип">
+        <span>Нежный онлайн</span>
+      </a>
+      <nav id="nav" class="nav">
+        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="festivals.html">Фестивали</a></li>
+          <li><a href="categories.html" class="active">Рубрики</a></li>
+          <li><a href="become-speaker.html" class="cta">Стать спикером</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Рубрики</h1>
+      <div class="grid-3 categories">
+        <article class="card cat">
+          <div class="icon">🏢</div>
+          <h3>Бизнес inside</h3>
+          <p>Взгляд на реальность бизнеса изнутри: процессы, кейсы, практики.</p>
+        </article>
+        <article class="card cat">
+          <div class="icon">💫</div>
+          <h3>Будни в ресурсе</h3>
+          <p>Психология позитивного дня и привычки, которые работают.</p>
+        </article>
+        <article class="card cat">
+          <div class="icon">🌿</div>
+          <h3>В здоровом теле</h3>
+          <p>Рецепты молодости, здоровья и устойчивости.</p>
+        </article>
+        <article class="card cat">
+          <div class="icon">🔮</div>
+          <h3>Тайны Жрицы</h3>
+          <p>Разгадываем неизведанное и исследуем внутренний мир.</p>
+        </article>
+        <article class="card cat">
+          <div class="icon">👨‍👩‍👧‍👦</div>
+          <h3>Родители и Дети</h3>
+          <p>Лайфхаки и сценарии для осознанного родительства.</p>
+        </article>
+        <article class="card cat">
+          <div class="icon">📚</div>
+          <h3>Пушкинские чтения</h3>
+          <p>Диалоги с интересными авторами и обсуждение текстов.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> «Нежный онлайн».</p>
+      <nav class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+        <a href="festivals.html">Фестивали</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

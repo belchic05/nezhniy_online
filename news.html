@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новости — Нежный онлайн</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="Логотип">
+        <span>Нежный онлайн</span>
+      </a>
+      <nav id="nav" class="nav">
+        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="news.html" class="active">Новости</a></li>
+          <li><a href="festivals.html">Фестивали</a></li>
+          <li><a href="categories.html">Рубрики</a></li>
+          <li><a href="become-speaker.html" class="cta">Стать спикером</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Новости</h1>
+      <p class="muted">Обновляйте ленту через файл <code>js/news.json</code>.</p>
+      <div id="news-list" class="news-list"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> «Нежный онлайн».</p>
+      <nav class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="festivals.html">Фестивали</a>
+        <a href="categories.html">Рубрики</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/config.js"></script>
+  <script>
+    async function loadNews(){
+      const list = document.getElementById('news-list');
+      const endpoint = (window.NEWS_ENDPOINT || '').trim();
+      let data = null;
+      try{
+        if (endpoint){
+          const r = await fetch(endpoint, {cache:'no-store'});
+          data = await r.json();
+        }
+      }catch(e){ /* ignore and fallback */ }
+      if (!Array.isArray(data)){
+        try{
+          const r2 = await fetch('js/news.json', {cache:'no-store'});
+          data = await r2.json();
+        }catch(e){ data = []; }
+      }
+      if (!Array.isArray(data) || data.length === 0){
+        list.innerHTML = '<p>Новостей пока нет. Загляните позже.</p>';
+        return;
+      }
+      const items = data.map(n => `
+        <article class="card news-item">
+          <time datetime="${n.date}">${new Date(n.date).toLocaleDateString('ru-RU')}</time>
+          <h3>${n.title}</h3>
+          ${n.image ? `<img src="${n.image}" alt="${n.title}" style="border-radius:12px;margin:8px 0;">` : ''}
+          <p>${n.text}</p>
+          ${n.link ? `<a class="btn link" href="${n.link}" target="_blank" rel="noopener">Подробнее →</a>` : ''}
+        </article>
+      `).join('');
+      list.innerHTML = items;
+    }
+    loadNews();
+  </script>
+</body>
+</html>

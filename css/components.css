@@ -1,0 +1,6 @@
+.muted{color:var(--muted)}
+.lead{font-size:18px;color:#4e4e4e}
+.promo-wrap{display:flex;align-items:center;gap:12px;margin:8px 0 12px}
+.promo{min-width:140px;display:inline-block;padding:8px 10px;border-radius:10px;background:#fff;border:1px dashed var(--primary-2);text-align:center}
+/* Utility */
+.hidden{display:none !important}

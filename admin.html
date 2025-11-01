@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ — Нежный онлайн</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="Логотип">
+        <span>Нежный онлайн — админ</span>
+      </a>
+      <nav id="nav" class="nav">
+        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="admin.html" class="active">Админ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Панель администратора</h1>
+
+      <section class="card" id="login-card">
+        <h3>Вход</h3>
+        <p class="muted">Доступ только для администратора. Установите ключ в <code>js/config.js</code>.</p>
+        <label>Админ‑ключ
+          <input id="admin-key" type="password" placeholder="Введите секретный ключ">
+        </label>
+        <button class="btn primary" id="login-btn">Войти</button>
+      </section>
+
+      <section class="card hidden" id="news-card">
+        <h3>Новая новость</h3>
+        <div class="grid-2">
+          <label>Заголовок<input id="n-title" required></label>
+          <label>Дата<input id="n-date" type="date" required></label>
+        </div>
+        <label>Текст<textarea id="n-text" rows="4" required></textarea></label>
+        <label>Ссылка (необязательно)<input id="n-link" placeholder="https://..."></label>
+        <label>Изображение (jpg/png, до ~5 МБ)<input id="n-image" type="file" accept="image/*"></label>
+        <div class="center" style="margin-top:10px">
+          <button class="btn primary" id="publish-btn">Опубликовать</button>
+        </div>
+        <p class="muted">Загруженные новости добавляются в лист <strong>News</strong> в Google Таблице, изображения — в папку Google Drive.</p>
+      </section>
+
+      <section class="card hidden" id="list-card">
+        <h3>Опубликованные новости</h3>
+        <div id="admin-news-list" class="news-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> «Нежный онлайн».</p>
+      <nav class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стать спикером — Нежный онлайн</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="Логотип">
+        <span>Нежный онлайн</span>
+      </a>
+      <nav id="nav" class="nav">
+        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="festivals.html">Фестивали</a></li>
+          <li><a href="categories.html">Рубрики</a></li>
+          <li><a href="become-speaker.html" class="cta active">Стать спикером</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Стать спикером радио</h1>
+      <p class="lead">
+        Продвиньте личный бренд, выйдите к своей аудитории и делитесь экспертизой. Наша экосистема — 1800+ в канале и 10&nbsp;000+ в чат-боте, размещение на 6 площадках: YouTube, RuTube, VK, Дзэн, TenChat, Telegram.
+      </p>
+
+      <section class="benefits grid-3">
+        <article class="card">
+          <h3>Плюсы участия</h3>
+          <ul class="list">
+            <li>Укрепление личного бренда</li>
+            <li>Целевая аудитория и релевантные просмотры</li>
+            <li>Размещение на 6 площадках</li>
+            <li>Подготовка анонсов и постов</li>
+            <li>Съёмка, монтаж, нарезки</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Форматы</h3>
+          <ul class="list">
+            <li>Спикер-фест онлайн</li>
+            <li>Участие + мастер-класс</li>
+            <li>Интервью-распаковка эксперта</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Как это работает</h3>
+          <ul class="list">
+            <li>Выбираете формат</li>
+            <li>Получаете промокод (по желанию)</li>
+            <li>Оставляете заявку</li>
+            <li>Мы связываемся и подтверждаем детали</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section soft-accent">
+        <h2 class="section-title">Тарифы и промокоды</h2>
+
+        <div class="tabs" data-tabs>
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="fest">A. Спикер-фест онлайн — 6 000 ₽</button>
+            <button class="tab-btn" data-tab="fest-mk">B. Фест + мастер-класс — 9 000 ₽</button>
+            <button class="tab-btn" data-tab="interview">C. Интервью-распаковка — 11 000 / 16 000 ₽</button>
+          </div>
+
+          <div class="tab-panels">
+            <div class="tab-panel active" id="fest">
+              <p class="muted">Скидка по промокоду: 1 500 ₽ (код действует 24 часа).</p>
+              <div class="promo-wrap">
+                <button class="btn small" data-generate="FEST-ONLINE">Получить промокод</button>
+                <output class="promo" data-code-for="FEST-ONLINE"></output>
+              </div>
+              <form class="card form" data-tariff="FEST-ONLINE">
+                <h3>Заявка на участие</h3>
+                <label>Имя<input name="name" required></label>
+                <label>Email<input name="email" type="email" required></label>
+                <label>Телефон<input name="phone" type="tel" required></label>
+                <label>Комментарий<textarea name="comment" rows="3" placeholder="Коротко о теме выступления"></textarea></label>
+                <button class="btn primary" type="submit">ПРИНЯТЬ УЧАСТИЕ</button>
+                <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
+              </form>
+            </div>
+
+            <div class="tab-panel" id="fest-mk">
+              <p class="muted">Скидка по промокоду: 1 500 ₽ (код действует 24 часа).</p>
+              <div class="promo-wrap">
+                <button class="btn small" data-generate="FEST-MASTER">Получить промокод</button>
+                <output class="promo" data-code-for="FEST-MASTER"></output>
+              </div>
+              <form class="card form" data-tariff="FEST-MASTER">
+                <h3>Заявка на участие + МК</h3>
+                <label>Имя<input name="name" required></label>
+                <label>Email<input name="email" type="email" required></label>
+                <label>Телефон<input name="phone" type="tel" required></label>
+                <label>Комментарий<textarea name="comment" rows="3" placeholder="Коротко о мастер-классе"></textarea></label>
+                <button class="btn primary" type="submit">ПРИНЯТЬ УЧАСТИЕ</button>
+                <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
+              </form>
+            </div>
+
+            <div class="tab-panel" id="interview">
+              <div class="grid-2">
+                <div>
+                  <h3>ПРОСТОЙ — 11 000 ₽</h3>
+                  <ul class="list">
+                    <li>Собеседование с редактором</li>
+                    <li>Анонсы, посты</li>
+                    <li>Запись до 60 минут</li>
+                    <li>Размещение на 5 площадках</li>
+                    <li>Нарезка видео</li>
+                  </ul>
+                  <div class="promo-wrap">
+                    <button class="btn small" data-generate="INTERVIEW-BASIC">Промокод (−2 000 ₽)</button>
+                    <output class="promo" data-code-for="INTERVIEW-BASIC"></output>
+                  </div>
+                  <form class="card form" data-tariff="INTERVIEW-BASIC">
+                    <h4>Заявка</h4>
+                    <label>Имя<input name="name" required></label>
+                    <label>Email<input name="email" type="email" required></label>
+                    <label>Телефон<input name="phone" type="tel" required></label>
+                    <button class="btn primary" type="submit">ОСТАВИТЬ ЗАЯВКУ</button>
+                    <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
+                  </form>
+                </div>
+                <div>
+                  <h3>ПРОДВИНУТЫЙ — 16 000 ₽</h3>
+                  <ul class="list">
+                    <li>Расширенная подготовка</li>
+                    <li>Дополнительные форматы</li>
+                    <li>Усиление интеграций</li>
+                  </ul>
+                  <div class="promo-wrap">
+                    <button class="btn small" data-generate="INTERVIEW-PRO">Промокод (−2 000 ₽)</button>
+                    <output class="promo" data-code-for="INTERVIEW-PRO"></output>
+                  </div>
+                  <form class="card form" data-tariff="INTERVIEW-PRO">
+                    <h4>Заявка</h4>
+                    <label>Имя<input name="name" required></label>
+                    <label>Email<input name="email" type="email" required></label>
+                    <label>Телефон<input name="phone" type="tel" required></label>
+                    <button class="btn primary" type="submit">ОСТАВИТЬ ЗАЯВКУ</button>
+                    <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> «Нежный онлайн».</p>
+      <nav class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+        <a href="festivals.html">Фестивали</a>
+        <a href="categories.html">Рубрики</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script type="module" src="js/promo-codes.js"></script>
+  <script type="module" src="js/forms.js"></script>
+</body>
+</html>

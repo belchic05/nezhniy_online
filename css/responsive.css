@@ -1,0 +1,14 @@
+@media (max-width: 920px){
+  .grid-3{grid-template-columns:1fr 1fr}
+  .news-list{grid-template-columns:1fr}
+  .banner-grid{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
+  .header-inner{height:60px}
+}
+@media (max-width: 640px){
+  .grid-3{grid-template-columns:1fr}
+  .banner-grid{grid-template-columns:1fr}
+  .nav-list{display:none;position:absolute;right:12px;top:60px;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:8px;flex-direction:column;min-width:220px}
+  .nav-toggle{display:inline-block}
+  .nav-list a{padding:10px 12px}
+}
