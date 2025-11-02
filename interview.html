@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/nezhniy_online/">
-  <title>Новости — Нежный онлайн</title>
-  <meta name="description" content="Лента новостей интернет‑радио «Нежный онлайн»: анонсы, эфиры, события.">
-  <link rel="canonical" href="https://belchic05.github.io/nezhniy_online/news.html">
+  <title>Интервью‑распаковка — Нежный онлайн</title>
+  <meta name="description" content="Формат интервью‑распаковки: выгоды и тарифы участия.">
+  <link rel="canonical" href="https://belchic05.github.io/nezhniy_online/interview.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Новости — Нежный онлайн">
-  <meta property="og:description" content="Лента новостей интернет‑радио «Нежный онлайн»: анонсы, эфиры, события.">
+  <meta property="og:title" content="Интервью‑распаковка — Нежный онлайн">
+  <meta property="og:description" content="Формат интервью‑распаковки: выгоды и тарифы участия.">
   <meta property="og:image" content="assets/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Новости — Нежный онлайн">
-  <meta name="twitter:description" content="Лента новостей интернет‑радио «Нежный онлайн»: анонсы, эфиры, события.">
+  <meta name="twitter:title" content="Интервью‑распаковка — Нежный онлайн">
+  <meta name="twitter:description" content="Формат интервью‑распаковки: выгоды и тарифы участия.">
   <meta name="theme-color" content="#f6f3f8">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.ico">
@@ -91,45 +91,56 @@
 </header>
 <main class="container" id="content" tabindex="-1">
 
-<h1>Новости</h1>
-<div id="news-list" class="grid news-list" aria-live="polite"></div>
-<nav aria-label="Пагинация" class="card" style="display:flex;gap:8px;justify-content:center;align-items:center;">
-  <button class="btn ghost" id="prev-page" disabled>Назад</button>
-  <span id="page-indicator" aria-live="polite">1</span>
-  <button class="btn" id="next-page">Вперёд</button>
-</nav>
-<script defer>
-  window.addEventListener('DOMContentLoaded', async () => {
-    const pageSize = 6;
-    let page = 1;
-    const res = await fetch('data/news.json');
-    const all = await res.json();
-    const list = document.getElementById('news-list');
-    const render = () => {
-      list.innerHTML='';
-      const start=(page-1)*pageSize, end=start+pageSize;
-      const slice = all.slice(start,end);
-      for (const n of slice) { 
-        const a = document.createElement('article');
-        a.className='card';
-        a.innerHTML = \`
-          <img class="img" src="\${n.image}" alt="\${n.title}" loading="lazy">
-          <div class="badge">\${new Date(n.date).toLocaleDateString('ru-RU')}</div>
-          <h3>\${n.title}</h3>
-          <p>\${n.excerpt}</p>
-          \${(n.links||[]).map(l=>'<a href="'+l.url+'">'+l.label+'</a>').join(' · ')}
-        \`;
-        list.appendChild(a);
-      }
-      document.getElementById('page-indicator').textContent = String(page);
-      document.getElementById('prev-page').disabled = (page===1);
-      document.getElementById('next-page').disabled = (end>=all.length);
-    };
-    document.getElementById('prev-page').onclick = ()=>{ if(page>1){page--; render(); window.scrollTo({top:0,behavior:'smooth'});} };
-    document.getElementById('next-page').onclick = ()=>{ page++; render(); window.scrollTo({top:0,behavior:'smooth'});} ;
-    render();
-  });
-</script>
+<h1>Интервью‑распаковка</h1>
+<p>Помогаем структурировать опыт, сформулировать ценностное предложение и упаковать историю в понятный выпуск.</p>
+<section class="grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+  <article class="card">
+    <h3>Простой</h3>
+    <ul>
+      <li>Подготовка вопросов</li>
+      <li>1 запись до 60 минут</li>
+      <li>Лёгкий монтаж и публикация</li>
+    </ul>
+    <p>Цена: <span class="price" data-base="11000" id="price-intro">11 000 ₽</span><span class="old-price" aria-hidden="true"></span></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" data-promo-generate data-target="price-intro" data-discount="2000">Промокод −2 000 ₽</button>
+      <button class="btn ghost" data-promo-apply data-target="price-intro">Применить</button>
+    </div>
+  </article>
+  <article class="card">
+    <h3>Продвинутый</h3>
+    <ul>
+      <li>Глубокая подготовка</li>
+      <li>До 90 минут записи</li>
+      <li>Расширенный монтаж + анонсы</li>
+    </ul>
+    <p>Цена: <span class="price" data-base="16000" id="price-pro">16 000 ₽</span><span class="old-price" aria-hidden="true"></span></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" data-promo-generate data-target="price-pro" data-discount="2000">Промокод −2 000 ₽</button>
+      <button class="btn ghost" data-promo-apply data-target="price-pro">Применить</button>
+    </div>
+  </article>
+</section>
+
+<section class="card">
+  <h2>Заявка на интервью</h2>
+  <form class="js-form" data-page="interview" data-method="formspree">
+    <input type="hidden" name="source" value="nezhny-online">
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+      <div><label>Имя<input required name="name" type="text" style="width:100%"></label></div>
+      <div><label>Email<input required name="email" type="email" style="width:100%"></label></div>
+      <div><label>Телефон<input required name="phone" type="tel" style="width:100%"></label></div>
+      <div style="grid-column:1/-1"><label>Комментарий<textarea name="message" rows="4" style="width:100%"></textarea></label></div>
+      <div><label>Выбранный тариф<select name="tariff" style="width:100%"><option>Простой</option><option>Продвинутый</option></select></label></div>
+      <div><label>Промокод<input name="promoCode" type="text" maxlength="4" style="width:100%"></label></div>
+    </div>
+    <p class="alert" id="form-alert-2" role="status" aria-live="polite"></p>
+    <button class="btn" type="submit">Отправить заявку</button>
+    <button class="btn ghost" type="button" data-mailto>Отправить через почтовый клиент</button>
+  </form>
+</section>
+<script defer src="assets/js/promocode.js"></script>
+<script defer src="assets/js/forms.js"></script>
 
 </main>
 <footer role="contentinfo">

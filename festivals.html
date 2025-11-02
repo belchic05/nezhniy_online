@@ -1,77 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/nezhniy_online/">
   <title>Спикерские фестивали — Нежный онлайн</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <meta name="description" content="Анонсы и записи спикерских фестивалей Нежного онлайн.">
+  <link rel="canonical" href="https://belchic05.github.io/nezhniy_online/festivals.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Спикерские фестивали — Нежный онлайн">
+  <meta property="og:description" content="Анонсы и записи спикерских фестивалей Нежного онлайн.">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Спикерские фестивали — Нежный онлайн">
+  <meta name="twitter:description" content="Анонсы и записи спикерских фестивалей Нежного онлайн.">
+  <meta name="theme-color" content="#f6f3f8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Fonts preload (local) -->
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* Critical CSS */
+    :root {
+      --color-bg: #fffdfd;
+      --color-fg: #252226;
+      --color-accent: #D29EC9;
+      --radius-xl: 20px;
+      --shadow-soft: 0 10px 24px rgba(0,0,0,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-bg:#121113; --color-fg:#eae4ee; --shadow-soft: 0 10px 24px rgba(0,0,0,.4); }
+      body { background: var(--color-bg); color: var(--color-fg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+    html, body { margin:0; padding:0; }
+    body { font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; background: var(--color-bg); color: var(--color-fg); }
+    a { color: #7D4C74; text-decoration: none; }
+    a:focus, button:focus, input:focus, select:focus, textarea:focus { outline: 3px solid #B97FAE; outline-offset: 2px; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 16px; }
+    header.site-header { position: sticky; top:0; background: var(--color-bg); z-index: 50; border-bottom: 1px solid #eee; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; }
+    .brand-logo { width:36px; height:36px; border-radius: 10px; background: linear-gradient(135deg,#F6D7F0,#E3D2F6); display:inline-block; box-shadow: var(--shadow-soft); }
+    nav ul { display:flex; gap:16px; list-style:none; padding:0; margin:0; flex-wrap: wrap; }
+    nav a { padding:8px 12px; border-radius:10px; }
+    nav a.is-active, nav a:hover { background:#f4e9f1; }
+    .hero { display:grid; gap:16px; padding:48px 0; }
+    .hero h1 { font-family:"Manrope", "Inter", system-ui, sans-serif; font-weight:800; font-size: clamp(28px, 4vw, 48px); margin:0; }
+    .btn { display:inline-block; padding:12px 18px; border-radius: 999px; border:1px solid #b788ad; background:#e8d2e1; color:#3b2c37; font-weight:600; }
+    .btn.ghost { background:transparent; }
+    .grid { display:grid; gap:16px; }
+    .card { border:1px solid #eee; border-radius: var(--radius-xl); padding:16px; box-shadow: var(--shadow-soft); background:#fff; }
+    .section-title { font-size: clamp(22px, 3vw, 32px); margin:32px 0 12px; }
+    footer { margin-top:48px; border-top:1px solid #eee; }
+    .breadcrumbs { font-size:14px; opacity:.8; margin: 8px 0 16px; }
+    .badge { display:inline-block; font-size:12px; padding:4px 8px; border-radius: 999px; background:#f2e6ef; }
+    .price { font-size: 24px; font-weight: 800; }
+    .old-price { text-decoration: line-through; opacity:.5; margin-left: 8px; font-weight: 600; }
+    .news-list, .speaker-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .img { width:100%; height:160px; border-radius:14px; object-fit:cover; background:#f7f2f6; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>window.__CONFIG__ = { REPO_OWNER:"belchic05", REPO_NAME:"nezhniy_online", ANALYTICS_ID:"G-XXXXXXX" };</script>
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="images/logo.png" alt="Логотип">
-        <span>Нежный онлайн</span>
-      </a>
-      <nav id="nav" class="nav">
-        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
-        <ul class="nav-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="news.html">Новости</a></li>
-          <li><a href="festivals.html" class="active">Фестивали</a></li>
-          <li><a href="categories.html">Рубрики</a></li>
-          <li><a href="become-speaker.html" class="cta">Стать спикером</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header class="site-header" role="banner">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <a class="brand" href="./" aria-label="На главную">
+      <span class="brand-logo" aria-hidden="true"></span>
+      <span>Нежный онлайн</span>
+    </a>
+    <nav aria-label="Основная навигация">
+      <ul>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="festivals.html">Спикерские фестивали</a></li>
+        <li><a href="rubrics.html">Рубрики</a></li>
+        <li><a href="speakers.html">Спикеры</a></li>
+        <li><a href="become-speaker.html">Стать спикером</a></li>
+        <li><a href="interview.html">Интервью-распаковка</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="container" id="content" tabindex="-1">
 
-  <main class="section">
-    <div class="container">
-      <h1 class="section-title">Спикерские фестивали</h1>
+<h1>Спикерские фестивали</h1>
+<div id="festivals-list" class="grid news-list" aria-live="polite"></div>
+<p class="card">Хочешь стать спикером? <a class="btn" href="become-speaker.html">Стать спикером</a></p>
+<script defer>
+  window.addEventListener('DOMContentLoaded', async () => {
+    const res = await fetch('data/festivals.json');
+    const items = await res.json();
+    const list = document.getElementById('festivals-list');
+    items.forEach(it => {
+      const a = document.createElement('article');
+      a.className='card';
+      a.innerHTML = \`
+        <img class="img" src="\${it.banner}" alt="Баннер фестиваля: \${it.title}" loading="lazy">
+        <div class="badge">\${new Date(it.date).toLocaleDateString('ru-RU')}</div>
+        <h3>\${it.title}</h3>
+        <p>\${Object.entries(it.links || {}).map(([k,v]) => v ? '<a href="'+v+'">'+k.toUpperCase()+'</a>' : '').join(' · ')}</p>
+      \`;
+      list.appendChild(a);
+    });
+  });
+</script>
 
-      <div class="banner-grid">
-        <a class="banner card" href="https://www.youtube.com/" target="_blank" rel="noopener">
-          <img src="images/festivals/banners/banner1.jpg" alt="Фестиваль — баннер 1">
-          <span>Смотреть на YouTube</span>
-        </a>
-        <a class="banner card" href="https://vk.com/" target="_blank" rel="noopener">
-          <img src="images/festivals/banners/banner2.jpg" alt="Фестиваль — баннер 2">
-          <span>Смотреть во ВКонтакте</span>
-        </a>
-        <a class="banner card" href="https://dzen.ru/" target="_blank" rel="noopener">
-          <img src="images/festivals/banners/banner3.jpg" alt="Фестиваль — баннер 3">
-          <span>Смотреть на Дзене</span>
-        </a>
+</main>
+<footer role="contentinfo">
+  <div class="container">
+    <div class="grid" style="grid-template-columns:1fr;gap:8px;">
+      <div><strong>Нежный онлайн</strong> · © 2025</div>
+      <div class="breadcrumbs" aria-label="Хлебные крошки">
+        <nav id="breadcrumbs" aria-label="Хлебные крошки"></nav>
       </div>
-
-      <div class="center mt-24">
-        <a class="btn primary" href="become-speaker.html">Хочешь стать спикером? →</a>
-      </div>
-
-      <h2 class="section-title mt-40">Галерея прошедших фестивалей</h2>
-      <div class="gallery grid-3" id="past-festivals">
-        <figure class="card"><img src="images/festivals/banners/banner4.jpg" alt="Фестиваль 4"><figcaption>«Женский день практик»</figcaption></figure>
-        <figure class="card"><img src="images/festivals/banners/banner5.jpg" alt="Фестиваль 5"><figcaption>«Сила мягкости»</figcaption></figure>
-        <figure class="card"><img src="images/festivals/banners/banner6.jpg" alt="Фестиваль 6"><figcaption>«Голос эксперток»</figcaption></figure>
+      <div>
+        Мы в соцсетях:
+        <a href="#" aria-label="YouTube">YouTube</a> ·
+        <a href="#" aria-label="RuTube">RuTube</a> ·
+        <a href="#" aria-label="VK">VK</a> ·
+        <a href="#" aria-label="Дзэн">Дзэн</a> ·
+        <a href="#" aria-label="TenChat">TenChat</a> ·
+        <a href="#" aria-label="Telegram">Telegram</a>
       </div>
     </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> «Нежный онлайн».</p>
-      <nav class="footer-nav">
-        <a href="index.html">Главная</a>
-        <a href="news.html">Новости</a>
-        <a href="categories.html">Рубрики</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
+  </div>
+</footer>
 </body>
 </html>

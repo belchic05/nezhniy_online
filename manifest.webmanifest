@@ -1,0 +1,14 @@
+{
+  "name": "Нежный онлайн",
+  "short_name": "Нежный онлайн",
+  "theme_color": "#f6f3f8",
+  "background_color": "#fffdfd",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

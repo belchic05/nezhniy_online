@@ -1,0 +1,23 @@
+
+/* Design tokens */
+:root{
+  --color-bg:#fffdfd;
+  --color-fg:#252226;
+  --color-accent:#D29EC9;
+  --radius-xl:20px;
+  --shadow-soft:0 10px 24px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box}
+img{max-width:100%;height:auto}
+.button-row{display:flex;gap:8px;flex-wrap:wrap}
+/* 12-col grid on >=1280px */
+@media (min-width:1280px){
+  .container{max-width:1200px}
+  .grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+}
+.alert{padding:8px 12px;border-radius:12px;background:#f7edf5;border:1px solid #edd6e8}
+/* Focus visible */
+:focus-visible{outline:3px solid #B97FAE;outline-offset:2px}
+/* Animations */
+.fade-in{opacity:0;transform:translateY(8px);animation:fadeIn .2s ease forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
