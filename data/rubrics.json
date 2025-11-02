@@ -1,0 +1,89 @@
+[
+  {
+    "slug": "business-inside",
+    "title": "Бизнес inside",
+    "description": "Практики, кейсы и инструменты роста.",
+    "items": [
+      {
+        "title": "Как выбрать нишу",
+        "link": "#",
+        "image": "assets/img/og.png"
+      },
+      {
+        "title": "Упаковка оффера",
+        "link": "#",
+        "image": "assets/img/og.png"
+      }
+    ]
+  },
+  {
+    "slug": "daily-resource",
+    "title": "Будни в ресурсе",
+    "description": "Энергия, дисциплина и баланс.",
+    "items": [
+      {
+        "title": "Утренние ритуалы",
+        "link": "#",
+        "image": "assets/img/og.png"
+      },
+      {
+        "title": "Анти‑выгорание",
+        "link": "#",
+        "image": "assets/img/og.png"
+      }
+    ]
+  },
+  {
+    "slug": "body-health",
+    "title": "В здоровом теле",
+    "description": "Здоровье как фундамент успеха.",
+    "items": [
+      {
+        "title": "Питание и продуктивность",
+        "link": "#",
+        "image": "assets/img/og.png"
+      },
+      {
+        "title": "Дыхательные практики",
+        "link": "#",
+        "image": "assets/img/og.png"
+      }
+    ]
+  },
+  {
+    "slug": "priestess-secrets",
+    "title": "Тайны Жрицы",
+    "description": "Интуиция, символы и женская сила.",
+    "items": [
+      {
+        "title": "Символы в повседневности",
+        "link": "#",
+        "image": "assets/img/og.png"
+      }
+    ]
+  },
+  {
+    "slug": "parents-kids",
+    "title": "Родители и Дети",
+    "description": "Поддерживающая коммуникация в семье.",
+    "items": [
+      {
+        "title": "Подростки и личные границы",
+        "link": "#",
+        "image": "assets/img/og.png"
+      }
+    ]
+  },
+  {
+    "slug": "pushkin",
+    "title": "Пушкинские чтения",
+    "description": "Классика как источник вдохновения.",
+    "items": [
+      {
+        "title": "Детское чтение вслух",
+        "link": "#",
+        "image": "assets/img/og.png"
+      }
+    ]
+  }
+]
