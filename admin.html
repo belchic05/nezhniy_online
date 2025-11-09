@@ -1,77 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Админ — Нежный онлайн</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Админка контента — Нежный онлайн</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    :root { --brand:#D29EC9; --bg:#fffdfd; --line:#eee2ec; }
+    body { background: var(--bg); color:#252226; }
+    .container { max-width: 1120px; margin:0 auto; padding:24px; }
+    .card { background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.06); padding:20px; margin-bottom:20px; }
+    .row { display:flex; gap:12px; flex-wrap:wrap; }
+    .row > * { flex:1; }
+    .toolbar { display:flex; gap:8px; flex-wrap:wrap; }
+    .btn { cursor:pointer; background:var(--brand); color:#fff; border:0; padding:10px 14px; border-radius:12px; font-weight:600; }
+    .btn.secondary { background:#f1e7ef; color:#252226; }
+    .btn.warn { background:#f15b5b; }
+    .input, select { width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e7e1e5; background:#fff; }
+    textarea { width:100%; min-height:360px; font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; padding:12px; border-radius:12px; border:1px solid #e7e1e5; background:#fffdfd; }
+    .tabs { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+    .tab { padding:8px 12px; border-radius:999px; background:#f4eef2; cursor:pointer; }
+    .tab.active { background:var(--brand); color:#fff; }
+    .hidden { display:none !important; }
+    .status { font-size:13px; color:#555; }
+    header.site-header { background:var(--bg); border-bottom:1px solid var(--line); }
+    .muted{ color:#6b656b; }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .kvs { display:grid; grid-template-columns:180px 1fr; gap:8px 12px; align-items:center; }
+    .help { font-size:13px; color:#6b656b; }
+    code { background:#f7f1f5; padding:2px 6px; border-radius:6px; }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="images/logo.png" alt="Логотип">
-        <span>Нежный онлайн — админ</span>
-      </a>
-      <nav id="nav" class="nav">
-        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
-        <ul class="nav-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="news.html">Новости</a></li>
-          <li><a href="admin.html" class="active">Админ</a></li>
-        </ul>
-      </nav>
+<header class="site-header">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+    <a class="logo" href="index.html" style="display:flex;gap:12px;align-items:center;text-decoration:none;">
+      <img src="assets/img/og.png" alt="Логотип" width="40" height="40" style="border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.08)">
+      <strong>Нежный онлайн — админка</strong>
+    </a>
+    <nav class="header-nav">
+      <a href="news.html">Новости</a>
+      <a href="speakers.html">Спикеры</a>
+      <a href="rubrics.html">Рубрики</a>
+      <a href="festivals.html">Фестивали</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Вход -->
+  <section id="login-card" class="card">
+    <h2>Вход</h2>
+    <p class="muted">Введите админ‑ключ. Настоящая проверка делается на стороне Google Apps Script.</p>
+    <div class="kvs">
+      <label class="muted">Админ‑ключ</label>
+      <input id="admin-key" class="input" type="password" placeholder="••••••••">
+      <span></span>
+      <button id="login-btn" class="btn">Войти</button>
     </div>
-  </header>
+  </section>
 
-  <main class="section">
-    <div class="container">
-      <h1 class="section-title">Панель администратора</h1>
+  <!-- Редактор JSON + загрузка картинок -->
+  <section id="cms-card" class="card hidden">
+    <div class="tabs" id="tabs">
+      <span class="tab active" data-entity="news">Новости</span>
+      <span class="tab" data-entity="speakers">Спикеры</span>
+      <span class="tab" data-entity="rubrics">Рубрики</span>
+      <span class="tab" data-entity="festivals">Фестивали</span>
+    </div>
 
-      <section class="card" id="login-card">
-        <h3>Вход</h3>
-        <p class="muted">Доступ только для администратора. Установите ключ в <code>js/config.js</code>.</p>
-        <label>Админ‑ключ
-          <input id="admin-key" type="password" placeholder="Введите секретный ключ">
-        </label>
-        <button class="btn primary" id="login-btn">Войти</button>
-      </section>
-
-      <section class="card hidden" id="news-card">
-        <h3>Новая новость</h3>
-        <div class="grid-2">
-          <label>Заголовок<input id="n-title" required></label>
-          <label>Дата<input id="n-date" type="date" required></label>
+    <div class="grid2">
+      <div>
+        <h3>Данные</h3>
+        <div class="toolbar" style="margin-bottom:10px;">
+          <button id="btn-load" class="btn secondary">Загрузить</button>
+          <button id="btn-format" class="btn secondary">Форматировать</button>
+          <button id="btn-save" class="btn">Сохранить JSON → GitHub</button>
+          <span id="status" class="status"></span>
         </div>
-        <label>Текст<textarea id="n-text" rows="4" required></textarea></label>
-        <label>Ссылка (необязательно)<input id="n-link" placeholder="https://..."></label>
-        <label>Изображение (jpg/png, до ~5 МБ)<input id="n-image" type="file" accept="image/*"></label>
-        <div class="center" style="margin-top:10px">
-          <button class="btn primary" id="publish-btn">Опубликовать</button>
+
+        <label class="muted">Файл</label>
+        <input id="file-path" class="input" value="data/news.json" spellcheck="false">
+        <label class="muted" style="margin-top:8px;">Комментарий коммита</label>
+        <input id="commit" class="input" value="feat(cms): update news via admin">
+        <label class="muted" style="margin-top:8px;">JSON</label>
+        <textarea id="editor" spellcheck="false" placeholder='[\n  { "title": "...", "date": "2025-11-01", "image": "assets/uploads/news/example.jpg" }\n]'></textarea>
+        <p class="help">Поддерживаются поля изображений, например: <code>"image"</code> / <code>"cover"</code> / <code>"photo"</code>. Вставьте путь, который вернёт загрузчик ниже.</p>
+      </div>
+
+      <div>
+        <h3>Картинки</h3>
+        <div class="kvs">
+          <label class="muted">Папка для загрузки</label>
+          <input id="upload-dir" class="input" value="assets/uploads/news">
+          <label class="muted">Префикс имени</label>
+          <input id="upload-prefix" class="input" value="news">
+          <label class="muted">Выберите файлы</label>
+          <input id="upload-files" type="file" accept="image/*" multiple />
+          <span></span>
+          <button id="btn-upload" class="btn">Загрузить в GitHub</button>
         </div>
-        <p class="muted">Загруженные новости добавляются в лист <strong>News</strong> в Google Таблице, изображения — в папку Google Drive.</p>
-      </section>
-
-      <section class="card hidden" id="list-card">
-        <h3>Опубликованные новости</h3>
-        <div id="admin-news-list" class="news-list"></div>
-      </section>
+        <p class="help">После загрузки пути автоматически скопируются в буфер и будут вставлены в курсор JSON‑редактора.</p>
+        <div id="upload-log" class="muted" style="margin-top:10px;white-space:pre-wrap;"></div>
+      </div>
     </div>
-  </main>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> «Нежный онлайн».</p>
-      <nav class="footer-nav">
-        <a href="index.html">Главная</a>
-        <a href="news.html">Новости</a>
-      </nav>
-    </div>
-  </footer>
+<footer class="site-footer">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+    <p>© <span id="year"></span> «Нежный онлайн».</p>
+    <div class="muted">Редактор JSON и загрузчик картинок → GitHub через Apps Script.</div>
+  </div>
+</footer>
 
-  <script src="js/config.js"></script>
-  <script type="module" src="js/admin.js"></script>
+<script src="js/config.js"></script>
+<script type="module" src="js/admin-cms.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
 </html>

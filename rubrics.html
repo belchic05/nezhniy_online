@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/nezhniy_online/">
-  <title>Новости — Нежный онлайн</title>
-  <meta name="description" content="Лента новостей интернет‑радио «Нежный онлайн»: анонсы, эфиры, события.">
-  <link rel="canonical" href="https://belchic05.github.io/nezhniy_online/news.html">
+  <title>Рубрики — Нежный онлайн</title>
+  <meta name="description" content="Подборки материалов по темам: бизнес, ресурс, здоровье, семья и другие.">
+  <link rel="canonical" href="https://belchic05.github.io/nezhniy_online/rubrics.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Новости — Нежный онлайн">
-  <meta property="og:description" content="Лента новостей интернет‑радио «Нежный онлайн»: анонсы, эфиры, события.">
+  <meta property="og:title" content="Рубрики — Нежный онлайн">
+  <meta property="og:description" content="Подборки материалов по темам: бизнес, ресурс, здоровье, семья и другие.">
   <meta property="og:image" content="assets/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Новости — Нежный онлайн">
-  <meta name="twitter:description" content="Лента новостей интернет‑радио «Нежный онлайн»: анонсы, эфиры, события.">
+  <meta name="twitter:title" content="Рубрики — Нежный онлайн">
+  <meta name="twitter:description" content="Подборки материалов по темам: бизнес, ресурс, здоровье, семья и другие.">
   <meta name="theme-color" content="#f6f3f8">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.ico">
@@ -91,43 +91,25 @@
 </header>
 <main class="container" id="content" tabindex="-1">
 
-<h1>Новости</h1>
-<div id="news-list" class="grid news-list" aria-live="polite"></div>
-<nav aria-label="Пагинация" class="card" style="display:flex;gap:8px;justify-content:center;align-items:center;">
-  <button class="btn ghost" id="prev-page" disabled>Назад</button>
-  <span id="page-indicator" aria-live="polite">1</span>
-  <button class="btn" id="next-page">Вперёд</button>
-</nav>
+<h1>Рубрики</h1>
+<div id="rubrics-list" class="grid news-list" aria-live="polite"></div>
 <script defer>
   window.addEventListener('DOMContentLoaded', async () => {
-    const pageSize = 6;
-    let page = 1;
-    const res = await fetch('data/news.json');
-    const all = await res.json();
-    const list = document.getElementById('news-list');
-    const render = () => {
-      list.innerHTML='';
-      const start=(page-1)*pageSize, end=start+pageSize;
-      const slice = all.slice(start,end);
-      for (const n of slice) { 
-        const a = document.createElement('article');
-        a.className='card';
-        a.innerHTML = \`
-          <img class="img" src="\${n.image}" alt="\${n.title}" loading="lazy">
-          <div class="badge">\${new Date(n.date).toLocaleDateString('ru-RU')}</div>
-          <h3>\${n.title}</h3>
-          <p>\${n.excerpt}</p>
-          \${(n.links||[]).map(l=>'<a href="'+l.url+'">'+l.label+'</a>').join(' · ')}
-        \`;
-        list.appendChild(a);
-      }
-      document.getElementById('page-indicator').textContent = String(page);
-      document.getElementById('prev-page').disabled = (page===1);
-      document.getElementById('next-page').disabled = (end>=all.length);
-    };
-    document.getElementById('prev-page').onclick = ()=>{ if(page>1){page--; render(); window.scrollTo({top:0,behavior:'smooth'});} };
-    document.getElementById('next-page').onclick = ()=>{ page++; render(); window.scrollTo({top:0,behavior:'smooth'});} ;
-    render();
+    const res = await fetch('data/rubrics.json');
+    const rubrics = await res.json();
+    const list = document.getElementById('rubrics-list');
+    rubrics.forEach(r => {
+      const a = document.createElement('article');
+      a.className='card';
+      a.innerHTML = \`
+        <h3>\${r.title}</h3>
+        <p>\${r.description}</p>
+        <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;">
+          \${(r.items||[]).slice(0,4).map(i => '<a class="card" href="'+i.link+'"><img class="img" src="'+i.image+'" alt="Обложка: '+i.title+'" loading="lazy"><div style="margin-top:8px;font-weight:600">'+i.title+'</div></a>').join('')}
+        </div>
+      \`;
+      list.appendChild(a);
+    });
   });
 </script>
 

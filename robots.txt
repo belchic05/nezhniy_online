@@ -1,0 +1,3 @@
+Sitemap: https://belchic05.github.io/nezhniy_online/sitemap.xml
+User-agent: *
+Allow: /

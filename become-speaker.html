@@ -1,182 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/nezhniy_online/">
   <title>Стать спикером — Нежный онлайн</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <meta name="description" content="Присоединяйтесь к спикерским фестивалям и форматам Нежного онлайн.">
+  <link rel="canonical" href="https://belchic05.github.io/nezhniy_online/become-speaker.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Стать спикером — Нежный онлайн">
+  <meta property="og:description" content="Присоединяйтесь к спикерским фестивалям и форматам Нежного онлайн.">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Стать спикером — Нежный онлайн">
+  <meta name="twitter:description" content="Присоединяйтесь к спикерским фестивалям и форматам Нежного онлайн.">
+  <meta name="theme-color" content="#f6f3f8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Fonts preload (local) -->
+  <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* Critical CSS */
+    :root {
+      --color-bg: #fffdfd;
+      --color-fg: #252226;
+      --color-accent: #D29EC9;
+      --radius-xl: 20px;
+      --shadow-soft: 0 10px 24px rgba(0,0,0,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-bg:#121113; --color-fg:#eae4ee; --shadow-soft: 0 10px 24px rgba(0,0,0,.4); }
+      body { background: var(--color-bg); color: var(--color-fg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+    html, body { margin:0; padding:0; }
+    body { font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; background: var(--color-bg); color: var(--color-fg); }
+    a { color: #7D4C74; text-decoration: none; }
+    a:focus, button:focus, input:focus, select:focus, textarea:focus { outline: 3px solid #B97FAE; outline-offset: 2px; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 16px; }
+    header.site-header { position: sticky; top:0; background: var(--color-bg); z-index: 50; border-bottom: 1px solid #eee; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; }
+    .brand-logo { width:36px; height:36px; border-radius: 10px; background: linear-gradient(135deg,#F6D7F0,#E3D2F6); display:inline-block; box-shadow: var(--shadow-soft); }
+    nav ul { display:flex; gap:16px; list-style:none; padding:0; margin:0; flex-wrap: wrap; }
+    nav a { padding:8px 12px; border-radius:10px; }
+    nav a.is-active, nav a:hover { background:#f4e9f1; }
+    .hero { display:grid; gap:16px; padding:48px 0; }
+    .hero h1 { font-family:"Manrope", "Inter", system-ui, sans-serif; font-weight:800; font-size: clamp(28px, 4vw, 48px); margin:0; }
+    .btn { display:inline-block; padding:12px 18px; border-radius: 999px; border:1px solid #b788ad; background:#e8d2e1; color:#3b2c37; font-weight:600; }
+    .btn.ghost { background:transparent; }
+    .grid { display:grid; gap:16px; }
+    .card { border:1px solid #eee; border-radius: var(--radius-xl); padding:16px; box-shadow: var(--shadow-soft); background:#fff; }
+    .section-title { font-size: clamp(22px, 3vw, 32px); margin:32px 0 12px; }
+    footer { margin-top:48px; border-top:1px solid #eee; }
+    .breadcrumbs { font-size:14px; opacity:.8; margin: 8px 0 16px; }
+    .badge { display:inline-block; font-size:12px; padding:4px 8px; border-radius: 999px; background:#f2e6ef; }
+    .price { font-size: 24px; font-weight: 800; }
+    .old-price { text-decoration: line-through; opacity:.5; margin-left: 8px; font-weight: 600; }
+    .news-list, .speaker-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .img { width:100%; height:160px; border-radius:14px; object-fit:cover; background:#f7f2f6; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>window.__CONFIG__ = { REPO_OWNER:"belchic05", REPO_NAME:"nezhniy_online", ANALYTICS_ID:"G-XXXXXXX" };</script>
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">
-        <img src="images/logo.png" alt="Логотип">
-        <span>Нежный онлайн</span>
-      </a>
-      <nav id="nav" class="nav">
-        <button class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
-        <ul class="nav-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="news.html">Новости</a></li>
-          <li><a href="festivals.html">Фестивали</a></li>
-          <li><a href="categories.html">Рубрики</a></li>
-          <li><a href="become-speaker.html" class="cta active">Стать спикером</a></li>
-        </ul>
-      </nav>
+<header class="site-header" role="banner">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <a class="brand" href="./" aria-label="На главную">
+      <span class="brand-logo" aria-hidden="true"></span>
+      <span>Нежный онлайн</span>
+    </a>
+    <nav aria-label="Основная навигация">
+      <ul>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="festivals.html">Спикерские фестивали</a></li>
+        <li><a href="rubrics.html">Рубрики</a></li>
+        <li><a href="speakers.html">Спикеры</a></li>
+        <li><a href="become-speaker.html">Стать спикером</a></li>
+        <li><a href="interview.html">Интервью-распаковка</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="container" id="content" tabindex="-1">
+
+<h1>Стать спикером</h1>
+<p>Аудитория: женщины‑эксперты и предприниматели. 1 800+ в канале, 10 000+ в чат‑боте (ссылки‑плейсхолдеры).</p>
+<section class="card">
+  <h2>Что вы получаете</h2>
+  <ul>
+    <li>Выступление на онлайн‑фестивале и продвижение выпуска</li>
+    <li>Размещение в каталоге спикеров</li>
+    <li>Поддержка команды и методические материалы</li>
+  </ul>
+</section>
+
+<section class="grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+  <article class="card" id="pkg-fest">
+    <h3>Участие в Спикер‑фесте онлайн</h3>
+    <p>Стоимость: <span class="price" data-base="6000" id="price-fest">6 000 ₽</span></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" data-promo-generate data-target="price-fest" data-discount="1500">Получить промокод −1 500 ₽</button>
+      <button class="btn ghost" data-promo-apply data-target="price-fest">Применить промокод</button>
     </div>
-  </header>
-
-  <main class="section">
-    <div class="container">
-      <h1 class="section-title">Стать спикером радио</h1>
-      <p class="lead">
-        Продвиньте личный бренд, выйдите к своей аудитории и делитесь экспертизой. Наша экосистема — 1800+ в канале и 10&nbsp;000+ в чат-боте, размещение на 6 площадках: YouTube, RuTube, VK, Дзэн, TenChat, Telegram.
-      </p>
-
-      <section class="benefits grid-3">
-        <article class="card">
-          <h3>Плюсы участия</h3>
-          <ul class="list">
-            <li>Укрепление личного бренда</li>
-            <li>Целевая аудитория и релевантные просмотры</li>
-            <li>Размещение на 6 площадках</li>
-            <li>Подготовка анонсов и постов</li>
-            <li>Съёмка, монтаж, нарезки</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Форматы</h3>
-          <ul class="list">
-            <li>Спикер-фест онлайн</li>
-            <li>Участие + мастер-класс</li>
-            <li>Интервью-распаковка эксперта</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Как это работает</h3>
-          <ul class="list">
-            <li>Выбираете формат</li>
-            <li>Получаете промокод (по желанию)</li>
-            <li>Оставляете заявку</li>
-            <li>Мы связываемся и подтверждаем детали</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="section soft-accent">
-        <h2 class="section-title">Тарифы и промокоды</h2>
-
-        <div class="tabs" data-tabs>
-          <div class="tab-buttons">
-            <button class="tab-btn active" data-tab="fest">A. Спикер-фест онлайн — 6 000 ₽</button>
-            <button class="tab-btn" data-tab="fest-mk">B. Фест + мастер-класс — 9 000 ₽</button>
-            <button class="tab-btn" data-tab="interview">C. Интервью-распаковка — 11 000 / 16 000 ₽</button>
-          </div>
-
-          <div class="tab-panels">
-            <div class="tab-panel active" id="fest">
-              <p class="muted">Скидка по промокоду: 1 500 ₽ (код действует 24 часа).</p>
-              <div class="promo-wrap">
-                <button class="btn small" data-generate="FEST-ONLINE">Получить промокод</button>
-                <output class="promo" data-code-for="FEST-ONLINE"></output>
-              </div>
-              <form class="card form" data-tariff="FEST-ONLINE">
-                <h3>Заявка на участие</h3>
-                <label>Имя<input name="name" required></label>
-                <label>Email<input name="email" type="email" required></label>
-                <label>Телефон<input name="phone" type="tel" required></label>
-                <label>Комментарий<textarea name="comment" rows="3" placeholder="Коротко о теме выступления"></textarea></label>
-                <button class="btn primary" type="submit">ПРИНЯТЬ УЧАСТИЕ</button>
-                <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
-              </form>
-            </div>
-
-            <div class="tab-panel" id="fest-mk">
-              <p class="muted">Скидка по промокоду: 1 500 ₽ (код действует 24 часа).</p>
-              <div class="promo-wrap">
-                <button class="btn small" data-generate="FEST-MASTER">Получить промокод</button>
-                <output class="promo" data-code-for="FEST-MASTER"></output>
-              </div>
-              <form class="card form" data-tariff="FEST-MASTER">
-                <h3>Заявка на участие + МК</h3>
-                <label>Имя<input name="name" required></label>
-                <label>Email<input name="email" type="email" required></label>
-                <label>Телефон<input name="phone" type="tel" required></label>
-                <label>Комментарий<textarea name="comment" rows="3" placeholder="Коротко о мастер-классе"></textarea></label>
-                <button class="btn primary" type="submit">ПРИНЯТЬ УЧАСТИЕ</button>
-                <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
-              </form>
-            </div>
-
-            <div class="tab-panel" id="interview">
-              <div class="grid-2">
-                <div>
-                  <h3>ПРОСТОЙ — 11 000 ₽</h3>
-                  <ul class="list">
-                    <li>Собеседование с редактором</li>
-                    <li>Анонсы, посты</li>
-                    <li>Запись до 60 минут</li>
-                    <li>Размещение на 5 площадках</li>
-                    <li>Нарезка видео</li>
-                  </ul>
-                  <div class="promo-wrap">
-                    <button class="btn small" data-generate="INTERVIEW-BASIC">Промокод (−2 000 ₽)</button>
-                    <output class="promo" data-code-for="INTERVIEW-BASIC"></output>
-                  </div>
-                  <form class="card form" data-tariff="INTERVIEW-BASIC">
-                    <h4>Заявка</h4>
-                    <label>Имя<input name="name" required></label>
-                    <label>Email<input name="email" type="email" required></label>
-                    <label>Телефон<input name="phone" type="tel" required></label>
-                    <button class="btn primary" type="submit">ОСТАВИТЬ ЗАЯВКУ</button>
-                    <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
-                  </form>
-                </div>
-                <div>
-                  <h3>ПРОДВИНУТЫЙ — 16 000 ₽</h3>
-                  <ul class="list">
-                    <li>Расширенная подготовка</li>
-                    <li>Дополнительные форматы</li>
-                    <li>Усиление интеграций</li>
-                  </ul>
-                  <div class="promo-wrap">
-                    <button class="btn small" data-generate="INTERVIEW-PRO">Промокод (−2 000 ₽)</button>
-                    <output class="promo" data-code-for="INTERVIEW-PRO"></output>
-                  </div>
-                  <form class="card form" data-tariff="INTERVIEW-PRO">
-                    <h4>Заявка</h4>
-                    <label>Имя<input name="name" required></label>
-                    <label>Email<input name="email" type="email" required></label>
-                    <label>Телефон<input name="phone" type="tel" required></label>
-                    <button class="btn primary" type="submit">ОСТАВИТЬ ЗАЯВКУ</button>
-                    <p class="form-note">Отправляя форму, вы соглашаетесь с обработкой персональных данных.</p>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  </article>
+  <article class="card" id="pkg-fest-mk">
+    <h3>Участие + МК по подготовке</h3>
+    <p>Стоимость: <span class="price" data-base="9000" id="price-fest-mk">9 000 ₽</span></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" data-promo-generate data-target="price-fest-mk" data-discount="1500">Получить промокод −1 500 ₽</button>
+      <button class="btn ghost" data-promo-apply data-target="price-fest-mk">Применить промокод</button>
     </div>
-  </main>
+  </article>
+</section>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> «Нежный онлайн».</p>
-      <nav class="footer-nav">
-        <a href="index.html">Главная</a>
-        <a href="news.html">Новости</a>
-        <a href="festivals.html">Фестивали</a>
-        <a href="categories.html">Рубрики</a>
-      </nav>
+<section class="card">
+  <h2>Условия участия</h2>
+  <p>Стабильный интернет, гарнитура/микрофон, подготовка тезисов. По желанию — мастер‑класс по упаковке выступления.</p>
+</section>
+
+<section class="card">
+  <h2>Заявка спикера</h2>
+  <form class="js-form" data-page="become-speaker" data-method="formspree">
+    <input type="hidden" name="source" value="nezhny-online">
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+      <div><label>Имя<input required name="name" type="text" style="width:100%"></label></div>
+      <div><label>Email<input required name="email" type="email" style="width:100%"></label></div>
+      <div><label>Телефон<input required name="phone" type="tel" style="width:100%"></label></div>
+      <div><label>Ссылки на соцсети<input name="links" type="text" style="width:100%"></label></div>
+      <div style="grid-column:1/-1"><label>Комментарий<textarea name="message" rows="4" style="width:100%"></textarea></label></div>
+      <div><label>Промокод<input name="promoCode" type="text" maxlength="4" style="width:100%"></label></div>
     </div>
-  </footer>
+    <p class="alert" id="form-alert" role="status" aria-live="polite"></p>
+    <button class="btn" type="submit">Отправить заявку</button>
+    <button class="btn ghost" type="button" data-mailto>Отправить через почтовый клиент</button>
+  </form>
+</section>
+<script defer src="assets/js/promocode.js"></script>
+<script defer src="assets/js/forms.js"></script>
 
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
-  <script type="module" src="js/promo-codes.js"></script>
-  <script type="module" src="js/forms.js"></script>
+</main>
+<footer role="contentinfo">
+  <div class="container">
+    <div class="grid" style="grid-template-columns:1fr;gap:8px;">
+      <div><strong>Нежный онлайн</strong> · © 2025</div>
+      <div class="breadcrumbs" aria-label="Хлебные крошки">
+        <nav id="breadcrumbs" aria-label="Хлебные крошки"></nav>
+      </div>
+      <div>
+        Мы в соцсетях:
+        <a href="#" aria-label="YouTube">YouTube</a> ·
+        <a href="#" aria-label="RuTube">RuTube</a> ·
+        <a href="#" aria-label="VK">VK</a> ·
+        <a href="#" aria-label="Дзэн">Дзэн</a> ·
+        <a href="#" aria-label="TenChat">TenChat</a> ·
+        <a href="#" aria-label="Telegram">Telegram</a>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
