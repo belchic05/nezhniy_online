@@ -4,17 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Админка контента — Нежный онлайн</title>
+
+  <!-- (необязательно) если у тебя есть эти файлы стилей в проекте -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
+
   <style>
     :root { --brand:#D29EC9; --bg:#fffdfd; --line:#eee2ec; }
-    body { background: var(--bg); color:#252226; }
+    body { background: var(--bg); color:#252226; margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; }
     .container { max-width: 1120px; margin:0 auto; padding:24px; }
-    .card { background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.06); padding:20px; margin-bottom:20px; }
+    .card { background:#fff; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.06); padding:20px; margin:20px 0; }
     .row { display:flex; gap:12px; flex-wrap:wrap; }
     .row > * { flex:1; }
-    .toolbar { display:flex; gap:8px; flex-wrap:wrap; }
+    .toolbar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
     .btn { cursor:pointer; background:var(--brand); color:#fff; border:0; padding:10px 14px; border-radius:12px; font-weight:600; }
     .btn.secondary { background:#f1e7ef; color:#252226; }
     .btn.warn { background:#f15b5b; }
@@ -31,7 +34,20 @@
     .kvs { display:grid; grid-template-columns:180px 1fr; gap:8px 12px; align-items:center; }
     .help { font-size:13px; color:#6b656b; }
     code { background:#f7f1f5; padding:2px 6px; border-radius:6px; }
+    a { color: inherit; }
   </style>
+
+  <!-- ВАЖНО: настройки должны быть подключены ДО admin-cms.js -->
+  <script>
+    // ЗАМЕНИ ЭТИ ДВЕ СТРОКИ СВОИМИ ЗНАЧЕНИЯМИ:
+    window.CMS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyA0Nj3UfspKIwsamH2R1BeqClymuvz5Ba32mA_wHGXjAlWZEZATqEflCzFOVn30dXk/exec"; // URL Web App из Apps Script (кончается на /exec)
+    window.ADMIN_KEY    = "9606021466a"; // тот же пароль, что в Script Properties -> ADMIN_KEY
+
+    // если ты уже хранишь это в js/config.js — оставь и его,
+    // но главное: переменные должны быть определены до admin-cms.js
+  </script>
+  <!-- (необязательно) можно также подключить ваш js/config.js, если он есть -->
+  <!-- <script src="js/config.js"></script> -->
 </head>
 <body>
 <header class="site-header">
@@ -53,9 +69,9 @@
   <!-- Вход -->
   <section id="login-card" class="card">
     <h2>Вход</h2>
-    <p class="muted">Введите админ‑ключ. Настоящая проверка делается на стороне Google Apps Script.</p>
+    <p class="muted">Введите админ-ключ. Настоящая проверка делается на стороне Google Apps Script.</p>
     <div class="kvs">
-      <label class="muted">Админ‑ключ</label>
+      <label class="muted">Админ-ключ</label>
       <input id="admin-key" class="input" type="password" placeholder="••••••••">
       <span></span>
       <button id="login-btn" class="btn">Войти</button>
@@ -83,10 +99,14 @@
 
         <label class="muted">Файл</label>
         <input id="file-path" class="input" value="data/news.json" spellcheck="false">
+
         <label class="muted" style="margin-top:8px;">Комментарий коммита</label>
         <input id="commit" class="input" value="feat(cms): update news via admin">
+
         <label class="muted" style="margin-top:8px;">JSON</label>
-        <textarea id="editor" spellcheck="false" placeholder='[\n  { "title": "...", "date": "2025-11-01", "image": "assets/uploads/news/example.jpg" }\n]'></textarea>
+        <textarea id="editor" spellcheck="false" placeholder='[
+  { "title": "...", "date": "2025-11-01", "image": "assets/uploads/news/example.jpg" }
+]'></textarea>
         <p class="help">Поддерживаются поля изображений, например: <code>"image"</code> / <code>"cover"</code> / <code>"photo"</code>. Вставьте путь, который вернёт загрузчик ниже.</p>
       </div>
 
@@ -95,14 +115,17 @@
         <div class="kvs">
           <label class="muted">Папка для загрузки</label>
           <input id="upload-dir" class="input" value="assets/uploads/news">
+
           <label class="muted">Префикс имени</label>
           <input id="upload-prefix" class="input" value="news">
+
           <label class="muted">Выберите файлы</label>
           <input id="upload-files" type="file" accept="image/*" multiple />
+
           <span></span>
           <button id="btn-upload" class="btn">Загрузить в GitHub</button>
         </div>
-        <p class="help">После загрузки пути автоматически скопируются в буфер и будут вставлены в курсор JSON‑редактора.</p>
+        <p class="help">После загрузки пути автоматически скопируются в буфер и будут вставлены в курсор JSON-редактора.</p>
         <div id="upload-log" class="muted" style="margin-top:10px;white-space:pre-wrap;"></div>
       </div>
     </div>
@@ -116,8 +139,8 @@
   </div>
 </footer>
 
-<script src="js/config.js"></script>
+<!-- ЛОГИКА АДМИНКИ -->
 <script type="module" src="js/admin-cms.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
