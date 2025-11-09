@@ -43,3 +43,26 @@ img{max-width:100%;height:auto}
   .img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
   input[type="search"]{ font-size:16px; } /* prevents iOS zoom on focus */
 }
+
+/* === Mobile header fix (2025-11-09) === */
+
+@media (max-width: 640px){
+  header.site-header .container{ display:grid !important; grid-template-columns: 1fr !important; row-gap: 8px !important; }
+  header.site-header .brand{ gap:8px !important; }
+  header.site-header .brand span{ font-size: 18px !important; line-height: 1.2 !important; }
+  header.site-header nav ul{ 
+    display:flex !important; 
+    gap:8px !important; 
+    flex-wrap: nowrap !important; 
+    overflow-x: auto !important; 
+    white-space: nowrap !important; 
+    padding-bottom: 6px !important; 
+    -webkit-overflow-scrolling: touch !important; 
+    margin: 0 !important;
+  }
+  header.site-header nav a{ 
+    font-size: 15px !important; 
+    padding: 8px 10px !important; 
+    border-radius: 12px !important; 
+  }
+}
