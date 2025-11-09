@@ -47,3 +47,71 @@
     gtagf('config', GA);
   }
 })();
+
+
+/* === Inject three-dots mobile menu === */
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header.site-header .container');
+  const nav = document.querySelector('header.site-header nav ul');
+  if (!header || !nav) return;
+
+  // create kebab button
+  const btn = document.createElement('button');
+  btn.className = 'menu-dots';
+  btn.type = 'button';
+  btn.setAttribute('aria-label','Открыть меню');
+  btn.setAttribute('aria-expanded','false');
+  btn.innerText = '⋯';
+
+  // backdrop and panel
+  const backdrop = document.createElement('div');
+  backdrop.className = 'mobile-menu__backdrop';
+  backdrop.setAttribute('role','dialog');
+  backdrop.setAttribute('aria-modal','true');
+  backdrop.setAttribute('id','mobile-menu');
+
+  const panel = document.createElement('div');
+  panel.className = 'mobile-menu__panel';
+  backdrop.appendChild(panel);
+
+  // clone list
+  const list = document.createElement('ul');
+  list.className = 'mobile-menu__list';
+  Array.from(nav.querySelectorAll('a')).forEach(a => {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.className = 'mobile-menu__link';
+    link.href = a.getAttribute('href');
+    link.textContent = a.textContent.trim();
+    li.appendChild(link);
+    list.appendChild(li);
+  });
+  panel.appendChild(list);
+
+  // append to DOM
+  header.appendChild(btn);
+  document.body.appendChild(backdrop);
+
+  function openMenu(){
+    backdrop.classList.add('is-open');
+    btn.setAttribute('aria-expanded','true');
+  }
+  function closeMenu(){
+    backdrop.classList.remove('is-open');
+    btn.setAttribute('aria-expanded','false');
+  }
+  btn.addEventListener('click', (e)=> {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    open ? closeMenu() : openMenu();
+  });
+  backdrop.addEventListener('click', (e)=> {
+    if (e.target === backdrop) closeMenu();
+  });
+  document.addEventListener('keydown', (e)=> {
+    if (e.key === 'Escape') closeMenu();
+  });
+  // Close after navigation
+  backdrop.addEventListener('click', (e)=> {
+    if (e.target.closest('a.mobile-menu__link')) closeMenu();
+  });
+});

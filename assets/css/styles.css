@@ -66,3 +66,40 @@ img{max-width:100%;height:auto}
     border-radius: 12px !important; 
   }
 }
+
+
+/* === Mobile kebab (three-dots) menu === */
+.menu-dots{
+  display:none;
+  border:0;
+  background:transparent;
+  font-size:28px;
+  line-height:1;
+  padding:6px 10px;
+  border-radius:12px;
+}
+.menu-dots:focus-visible{ outline: 2px solid #b788ad; outline-offset: 2px; }
+@media (max-width: 640px){
+  header.site-header .menu-dots{ display:inline-block; justify-self:end; }
+  header.site-header .container{ grid-template-columns: 1fr auto !important; align-items:center; }
+  header.site-header nav{ display:none !important; }
+}
+/* overlay & sheet */
+.mobile-menu__backdrop{
+  position: fixed; inset: 0; background: rgba(0,0,0,.4);
+  display: none; z-index: 1000;
+}
+.mobile-menu__panel{
+  position: fixed; right: 12px; top: 12px;
+  background: var(--color-bg); color: var(--color-fg);
+  border-radius: 16px; box-shadow: var(--shadow-soft);
+  padding: 8px; width: min(92vw, 360px);
+}
+.mobile-menu__list{ list-style:none; margin:0; padding: 4px; display:grid; gap:6px; }
+.mobile-menu__link{
+  display:block; padding:12px 14px; border-radius:12px; text-decoration:none;
+}
+.mobile-menu__link:hover{ background:#f4e9f1; }
+/* show when open */
+.mobile-menu__backdrop.is-open{ display:block; }
+
